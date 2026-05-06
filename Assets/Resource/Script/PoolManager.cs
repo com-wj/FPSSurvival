@@ -1,11 +1,11 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 public class PoolManager : Singleton<PoolManager>
 {
-	private readonly Dictionary<GameObject, Queue<GameObject>> _pools = new Dictionary<GameObject, Queue<GameObject>>(); // ´ÙÁß Ç®
+	private readonly Dictionary<GameObject, Queue<GameObject>> _pools = new Dictionary<GameObject, Queue<GameObject>>(); // ë‹¤ì¤‘ í’€
 
-	private readonly Dictionary<GameObject, Transform> _roots = new Dictionary<GameObject, Transform>(); // ÇÏÀÌ¾î¶óÅ° Á¤¸®¿ë Æ®·£½ºÆû
+	private readonly Dictionary<GameObject, Transform> _roots = new Dictionary<GameObject, Transform>(); // í•˜ì´ì–´ë¼í‚¤ ì •ë¦¬ìš© íŠ¸ëœìŠ¤í¼
 
 	public void Push(GameObject prefab, GameObject go)
 	{
@@ -44,13 +44,13 @@ public class PoolManager : Singleton<PoolManager>
 		else
 		{
 			go = Instantiate(prefab, position, rotation);
-			// go.Init(); »ı¼º ½ÃÁ¡¿¡ originPrefab ÁÖÀÔ.
+			// go.Init(); ìƒì„± ì‹œì ì— originPrefab ì£¼ì….
 		}
 
 		return go;
 	}
 
-	// ÇÏÀÌ¾î¶óÅ° ·çÆ® Æ®·£½ºÆû »ı¼º
+	// í•˜ì´ì–´ë¼í‚¤ ë£¨íŠ¸ íŠ¸ëœìŠ¤í¼ ìƒì„±
 	private void CreateRoot(GameObject prefab)
 	{
 		if (_roots.ContainsKey(prefab)) return;
